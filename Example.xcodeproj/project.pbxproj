@@ -21,8 +21,8 @@
 		C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */; };
 		C785CFF418F9809900F8AC16 /* RPBlurredImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF318F9809900F8AC16 /* RPBlurredImageView.m */; };
 		C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF718F9847900F8AC16 /* RPExampleViewController.m */; };
-		C785CFFC18F984F600F8AC16 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = C785CFFB18F984F600F8AC16 /* example.png */; };
 		C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */; };
+		C785D00118F9E56A00F8AC16 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = C785D00018F9E56A00F8AC16 /* example.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +58,9 @@
 		C785CFF318F9809900F8AC16 /* RPBlurredImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPBlurredImageView.m; sourceTree = "<group>"; };
 		C785CFF618F9847900F8AC16 /* RPExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPExampleViewController.h; sourceTree = "<group>"; };
 		C785CFF718F9847900F8AC16 /* RPExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPExampleViewController.m; sourceTree = "<group>"; };
-		C785CFFB18F984F600F8AC16 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = example.png; path = ../../../../../Desktop/example.png; sourceTree = "<group>"; };
 		C785CFFD18F9971E00F8AC16 /* RPImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPImageUploader.h; sourceTree = "<group>"; };
 		C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploader.m; sourceTree = "<group>"; };
+		C785D00018F9E56A00F8AC16 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +164,7 @@
 		C785CFE218F89F2500F8AC16 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C785CFFB18F984F600F8AC16 /* example.png */,
+				C785D00018F9E56A00F8AC16 /* example.png */,
 				C785CFE318F89F2500F8AC16 /* Example-Info.plist */,
 				C785CFE418F89F2500F8AC16 /* Example-Prefix.pch */,
 				C785CFE518F89F2500F8AC16 /* main.m */,
@@ -273,7 +273,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C785CFFC18F984F600F8AC16 /* example.png in Resources */,
+				C785D00118F9E56A00F8AC16 /* example.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
