@@ -14,7 +14,7 @@
 /// Properties used for KVO (isFinish, hasFailed, percentage)
 @property(nonatomic,readonly)BOOL isFinished;
 @property(nonatomic,readonly)BOOL isFailed;
-@property(nonatomic,readonly)double percentage;
+@property(nonatomic,readonly)double uploadPercentage;
 
 /**
  Designated Initializer. Receives a request and the image's Data. This 

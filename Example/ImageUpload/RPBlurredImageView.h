@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Rui Peres. All rights reserved.
 //
 
-@class RPImageUploaderViewModel;
+@protocol RPImageUploaderViewModel;
 
 /**
  Used to show an image, while the same is being uploaded. The progress
@@ -19,8 +19,7 @@
 /**
  Designated Initializer.
  */
-- (instancetype)initWithFrame:(CGRect)frame uploaderViewModel:(RPImageUploaderViewModel *)imageUploaderViewModel;
-
+- (instancetype)initWithFrame:(CGRect)frame uploaderViewModel:(id <RPImageUploaderViewModel>)imageUploaderViewModel;
 
 - (void)animate;
 

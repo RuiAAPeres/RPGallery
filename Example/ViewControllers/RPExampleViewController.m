@@ -10,6 +10,7 @@
 
 #import "RPImageUploaderViewModel.h"
 #import "RPBlurredImageView.h"
+#import "RPMockViewModel.h"
 
 @interface RPExampleViewController ()
 
@@ -33,14 +34,16 @@
     {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"www.google.com"]];
         UIImage *image = [UIImage imageNamed:@"example.png"];
-        RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithImage:image request:request];
+      //  RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithImage:image request:request];
         
-        RPBlurredImageView *blurredImageView = [[RPBlurredImageView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) uploaderViewModel:imageUploaderViewModel];
+        RPMockViewModel *mockViewModel = [[RPMockViewModel alloc] initWithImage:image request:request];
+        
+        RPBlurredImageView *blurredImageView = [[RPBlurredImageView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) uploaderViewModel:mockViewModel];
         
         [[self view] addSubview:blurredImageView];
         
         
-        [blurredImageView animate];
+        [mockViewModel startFakeUpload];
     }
 }
 

@@ -14,8 +14,6 @@
 		C785CFCA18F89EFF00F8AC16 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFC918F89EFF00F8AC16 /* XCTest.framework */; };
 		C785CFCB18F89EFF00F8AC16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB018F89EFE00F8AC16 /* Foundation.framework */; };
 		C785CFCC18F89EFF00F8AC16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB418F89EFE00F8AC16 /* UIKit.framework */; };
-		C785CFD418F89EFF00F8AC16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C785CFD218F89EFF00F8AC16 /* InfoPlist.strings */; };
-		C785CFD618F89EFF00F8AC16 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFD518F89EFF00F8AC16 /* ExampleTests.m */; };
 		C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE118F89F2500F8AC16 /* RPAppDelegate.m */; };
 		C785CFE818F89F2500F8AC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE518F89F2500F8AC16 /* main.m */; };
 		C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */; };
@@ -23,6 +21,8 @@
 		C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF718F9847900F8AC16 /* RPExampleViewController.m */; };
 		C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */; };
 		C785D00118F9E56A00F8AC16 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = C785D00018F9E56A00F8AC16 /* example.png */; };
+		C785D00818F9F2AC00F8AC16 /* RPMockViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */; };
+		C785D00918F9F47E00F8AC16 /* RPMockViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,9 +44,6 @@
 		C785CFB418F89EFE00F8AC16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C785CFC818F89EFF00F8AC16 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785CFC918F89EFF00F8AC16 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C785CFD118F89EFF00F8AC16 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
-		C785CFD318F89EFF00F8AC16 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		C785CFD518F89EFF00F8AC16 /* ExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExampleTests.m; sourceTree = "<group>"; };
 		C785CFE018F89F2500F8AC16 /* RPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPAppDelegate.h; sourceTree = "<group>"; };
 		C785CFE118F89F2500F8AC16 /* RPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPAppDelegate.m; sourceTree = "<group>"; };
 		C785CFE318F89F2500F8AC16 /* Example-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Example-Info.plist"; sourceTree = "<group>"; };
@@ -61,6 +58,9 @@
 		C785CFFD18F9971E00F8AC16 /* RPImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPImageUploader.h; sourceTree = "<group>"; };
 		C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploader.m; sourceTree = "<group>"; };
 		C785D00018F9E56A00F8AC16 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
+		C785D00318F9F24900F8AC16 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
+		C785D00618F9F2AC00F8AC16 /* RPMockViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPMockViewModel.h; sourceTree = "<group>"; };
+		C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPMockViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,19 +137,10 @@
 		C785CFCF18F89EFF00F8AC16 /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				C785CFD518F89EFF00F8AC16 /* ExampleTests.m */,
-				C785CFD018F89EFF00F8AC16 /* Supporting Files */,
+				C785D00518F9F29E00F8AC16 /* Mock */,
+				C785D00218F9F24900F8AC16 /* Supporting Files */,
 			);
 			path = ExampleTests;
-			sourceTree = "<group>";
-		};
-		C785CFD018F89EFF00F8AC16 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				C785CFD118F89EFF00F8AC16 /* ExampleTests-Info.plist */,
-				C785CFD218F89EFF00F8AC16 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		C785CFDF18F89F2500F8AC16 /* App Delegate */ = {
@@ -192,6 +183,23 @@
 				C785CFF718F9847900F8AC16 /* RPExampleViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C785D00218F9F24900F8AC16 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C785D00318F9F24900F8AC16 /* ExampleTests-Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C785D00518F9F29E00F8AC16 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				C785D00618F9F2AC00F8AC16 /* RPMockViewModel.h */,
+				C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */,
+			);
+			path = Mock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +289,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C785CFD418F89EFF00F8AC16 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +349,7 @@
 				C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */,
 				C785CFE818F89F2500F8AC16 /* main.m in Sources */,
 				C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */,
+				C785D00918F9F47E00F8AC16 /* RPMockViewModel.m in Sources */,
 				C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */,
 				C785CFF418F9809900F8AC16 /* RPBlurredImageView.m in Sources */,
 				C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */,
@@ -352,7 +360,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C785CFD618F89EFF00F8AC16 /* ExampleTests.m in Sources */,
+				C785D00818F9F2AC00F8AC16 /* RPMockViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,17 +373,6 @@
 			targetProxy = C785CFCD18F89EFF00F8AC16 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		C785CFD218F89EFF00F8AC16 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C785CFD318F89EFF00F8AC16 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		C785CFD718F89EFF00F8AC16 /* Debug */ = {
@@ -517,12 +514,12 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
+				GCC_PREFIX_HEADER = "Example/Supporting Files/Example-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
+				INFOPLIST_FILE = "ExampleTests/Supporting Files/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -539,8 +536,8 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Example/Example-Prefix.pch";
-				INFOPLIST_FILE = "ExampleTests/ExampleTests-Info.plist";
+				GCC_PREFIX_HEADER = "Example/Supporting Files/Example-Prefix.pch";
+				INFOPLIST_FILE = "ExampleTests/Supporting Files/ExampleTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

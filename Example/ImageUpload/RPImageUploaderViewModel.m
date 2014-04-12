@@ -11,16 +11,16 @@
 
 static NSString *const RPImageUploaderViewModelContext = @"RPImageUploaderViewModelContext";
 
-static NSString *const RPPercentage = @"percentage";
+static NSString *const RPPercentage = @"uploadPercentage";
 static NSString *const RPIsFinished = @"isFinished";
 static NSString *const RPIsFailed = @"isFailed";
 
 @interface RPImageUploaderViewModel ()
 
 @property(nonatomic,strong)UIImage *imageToBeUploaded;
-@property(nonatomic,strong)RPImageUploader *imageUploader;
+@property(nonatomic)NSNumber *uploadPercentage;
 
-@property(nonatomic)double percentage;
+@property(nonatomic,strong)RPImageUploader *imageUploader;
 
 @end
 
@@ -42,11 +42,11 @@ static NSString *const RPIsFailed = @"isFailed";
     if (self = [super init])
     {
         _imageToBeUploaded = image;
-        
+        _uploadPercentage = @0;
         //TODO: There should possible to create an NSData
         //      from the picture in different ways.
-        //      An alternative could be passing a function in the initializer,
-        //      that would take an UIImage and return an NSData.
+        //      An alternative could be passing a function into the initializer,
+        //      that would take an UIImage and return a NSData.
         NSData *imageData = UIImageJPEGRepresentation(image, 0.6f);
         
         _imageUploader = [[RPImageUploader alloc] initWithRequest:request imageData:imageData];
@@ -86,7 +86,7 @@ static NSString *const RPIsFailed = @"isFailed";
     {
         if ([keyPath isEqualToString:RPPercentage])
         {
-            self.percentage = [[change objectForKey:NSKeyValueChangeNewKey] doubleValue];
+            self.uploadPercentage = [change objectForKey:NSKeyValueChangeNewKey];
         }
         else
         {

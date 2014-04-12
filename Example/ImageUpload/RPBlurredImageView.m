@@ -11,13 +11,14 @@
 
 #import "FXBlurView.h"
 
-static NSString *const RPBlurredImageViewContext = @"RPBlurredImageViewContext";
-static NSString *const RPPercentage = @"percentage";
+static void *RPBlurredImageViewContext = &RPBlurredImageViewContext;
+
+static NSString *const RPPercentage = @"uploadPercentage";
 
 @interface RPBlurredImageView ()
 
-@property(nonatomic,strong)RPImageUploaderViewModel *imageUploaderViewModel;
-@property(nonatomic,strong)FXBlurView *blurredView;
+@property(nonatomic,strong)id<RPImageUploaderViewModel> imageUploaderViewModel;
+@property(nonatomic,weak)FXBlurView *blurredView;
 
 @end
 
@@ -37,15 +38,16 @@ static NSString *const RPPercentage = @"percentage";
     return nil;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame uploaderViewModel:(RPImageUploaderViewModel *)imageUploaderViewModel
+- (instancetype)initWithFrame:(CGRect)frame uploaderViewModel:(id<RPImageUploaderViewModel>)imageUploaderViewModel
 {
     if (self = [super initWithFrame:frame])
     {
-        _imageUploaderViewModel = imageUploaderViewModel;
-        self.image = imageUploaderViewModel.imageToBeUploaded;
-        [self setBackgroundColor:[UIColor blackColor]];
-        [self setContentMode:UIViewContentModeScaleAspectFit];
-        [self addSubview:self.blurredView];
+        self.imageUploaderViewModel = imageUploaderViewModel;
+        self.image = _imageUploaderViewModel.imageToBeUploaded;
+        
+        [self setupBlurredImageView];
+        [self setupBlurredView];
+        [self setupKVO];
     }
     
     return self;
@@ -56,48 +58,51 @@ static NSString *const RPPercentage = @"percentage";
 
 - (void)dealloc
 {
-    [self removeObserver:_imageUploaderViewModel forKeyPath:RPPercentage context:(__bridge void *)(RPBlurredImageViewContext)];
+    [self removeObserver:_imageUploaderViewModel forKeyPath:RPPercentage context:RPBlurredImageViewContext];
+}
+
+#pragma mark - Setup
+
+- (void)setupBlurredView
+{
+    _blurredView = [self defaultBlurredView];;
+    [self addSubview:_blurredView];
+}
+
+- (void)setupBlurredImageView
+{
+    [self setBackgroundColor:[UIColor blackColor]];
+    [self setContentMode:UIViewContentModeScaleAspectFit];
+}
+
+- (void)setupKVO
+{
+    [self addObserver:self.imageUploaderViewModel forKeyPath:RPPercentage options:NSKeyValueObservingOptionNew context:RPBlurredImageViewContext];
 }
 
 #pragma mark - KVO
 
-- (void)setupKVO
-{
-    [self addObserver:_imageUploaderViewModel forKeyPath:RPPercentage options:NSKeyValueObservingOptionNew context:(__bridge void *)(RPBlurredImageViewContext)];
-}
-
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if (context == (__bridge void *)(RPBlurredImageViewContext))
+    if (context == RPBlurredImageViewContext)
     {
         if ([keyPath isEqualToString:RPPercentage])
         {
             // TODO: Handle the percentage
-        }
-        else
-        {
-            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
         }
     }
 }
 
 #pragma mark - Getter
 
-- (FXBlurView *)blurredView
+- (FXBlurView *)defaultBlurredView
 {
-    if (!_blurredView)
-    {
-        _blurredView = ({
-            FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:self.bounds];
-            [blurView setBlurRadius:0];
-            [blurView setContentMode:UIViewContentModeRight];
-            [blurView setTintColor:[UIColor whiteColor]];
-            
-            blurView;
-        });
-    }
+    FXBlurView *blurView = [[FXBlurView alloc] initWithFrame:self.bounds];
+    [blurView setBlurRadius:0];
+    [blurView setContentMode:UIViewContentModeRight];
+    [blurView setTintColor:[UIColor whiteColor]];
     
-    return _blurredView;
+    return blurView;
 }
 
 #pragma mark - Testing
@@ -106,7 +111,7 @@ static NSString *const RPPercentage = @"percentage";
 {
     [self.blurredView updateAsynchronously:YES completion:NULL];
     [FXBlurView setUpdatesDisabled];
-
+    
     [UIView animateWithDuration:10.0f animations:^{
         [self.blurredView setFrame:CGRectMake(CGRectGetWidth(self.blurredView.frame), CGRectGetMinY(self.blurredView.frame), 0.0f, CGRectGetHeight(self.blurredView.frame))];
         

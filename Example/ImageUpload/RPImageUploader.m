@@ -14,7 +14,7 @@
 
 @property(nonatomic)BOOL isFinished;
 @property(nonatomic)BOOL isFailed;
-@property(nonatomic)double percentage;
+@property(nonatomic)double uploadPercentage;
 
 @end
 
@@ -30,6 +30,9 @@
 
 - (instancetype)initWithRequest:(NSURLRequest *)request imageData:(NSData *)imageData
 {
+    NSAssert(imageData, @"Image should be not nil");
+    NSAssert(request, @"Request should be not nil");
+    
     if(self = [super init])
     {
         _uploadTask = [self uploadTaskWithRequest:request imageData:imageData];
@@ -52,7 +55,7 @@
 {
     _isFailed = NO;
     _isFinished = NO;
-    _percentage = 0;
+    _uploadPercentage = 0;
 }
 
 #pragma mark - NSURLSession
@@ -71,7 +74,7 @@
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
 {
-   self.percentage = (double)totalBytesSent / (double)totalBytesExpectedToSend;
+   self.uploadPercentage = (double)totalBytesSent / (double)totalBytesExpectedToSend;
 }
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
