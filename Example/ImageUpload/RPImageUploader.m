@@ -14,7 +14,7 @@
 
 @property(nonatomic)BOOL isFinished;
 @property(nonatomic)BOOL isFailed;
-@property(nonatomic)NSUInteger percentage;
+@property(nonatomic)double percentage;
 
 @end
 

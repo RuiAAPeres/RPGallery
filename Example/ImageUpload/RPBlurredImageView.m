@@ -11,6 +11,9 @@
 
 #import "FXBlurView.h"
 
+static NSString *const RPBlurredImageViewContext = @"RPBlurredImageViewContext";
+static NSString *const RPPercentage = @"percentage";
+
 @interface RPBlurredImageView ()
 
 @property(nonatomic,strong)RPImageUploaderViewModel *imageUploaderViewModel;
@@ -42,11 +45,40 @@
         self.image = imageUploaderViewModel.imageToBeUploaded;
         [self setBackgroundColor:[UIColor blackColor]];
         [self setContentMode:UIViewContentModeScaleAspectFit];
-        
         [self addSubview:self.blurredView];
     }
     
     return self;
+}
+
+
+#pragma mark - Dealloc
+
+- (void)dealloc
+{
+    [self removeObserver:_imageUploaderViewModel forKeyPath:RPPercentage context:(__bridge void *)(RPBlurredImageViewContext)];
+}
+
+#pragma mark - KVO
+
+- (void)setupKVO
+{
+    [self addObserver:_imageUploaderViewModel forKeyPath:RPPercentage options:NSKeyValueObservingOptionNew context:(__bridge void *)(RPBlurredImageViewContext)];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == (__bridge void *)(RPBlurredImageViewContext))
+    {
+        if ([keyPath isEqualToString:RPPercentage])
+        {
+            // TODO: Handle the percentage
+        }
+        else
+        {
+            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+        }
+    }
 }
 
 #pragma mark - Getter

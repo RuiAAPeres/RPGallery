@@ -12,6 +12,7 @@
 @interface RPImageUploaderViewModel : NSObject
 
 @property(nonatomic,strong,readonly)UIImage *imageToBeUploaded;
+@property(nonatomic,readonly)double percentage;
 
 /**
  Designated initializer wichs receives an image and a request. The request will then

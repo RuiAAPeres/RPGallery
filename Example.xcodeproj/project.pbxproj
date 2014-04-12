@@ -17,7 +17,6 @@
 		C785CFD418F89EFF00F8AC16 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C785CFD218F89EFF00F8AC16 /* InfoPlist.strings */; };
 		C785CFD618F89EFF00F8AC16 /* ExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFD518F89EFF00F8AC16 /* ExampleTests.m */; };
 		C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE118F89F2500F8AC16 /* RPAppDelegate.m */; };
-		C785CFE718F89F2500F8AC16 /* Example-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C785CFE318F89F2500F8AC16 /* Example-Info.plist */; };
 		C785CFE818F89F2500F8AC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE518F89F2500F8AC16 /* main.m */; };
 		C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */; };
 		C785CFF418F9809900F8AC16 /* RPBlurredImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF318F9809900F8AC16 /* RPBlurredImageView.m */; };
@@ -275,7 +274,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C785CFFC18F984F600F8AC16 /* example.png in Resources */,
-				C785CFE718F89F2500F8AC16 /* Example-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

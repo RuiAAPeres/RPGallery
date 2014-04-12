@@ -25,7 +25,6 @@ build/
 *.dep
 
 # Cocoapods
-Pods
 
 # AppCode specific files
 .idea/

@@ -14,6 +14,8 @@
  */
 @interface RPBlurredImageView : UIImageView
 
+@property(nonatomic,readonly)double percentage;
+
 /**
  Designated Initializer.
  */
