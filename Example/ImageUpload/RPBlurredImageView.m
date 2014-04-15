@@ -9,6 +9,10 @@
 #import "RPBlurredImageView.h"
 #import "RPImageUploaderViewModel.h"
 
+#import "ReactiveCocoa.h"
+#import "ReactiveCocoaLayout.h"
+#import "RACEXTScope.h"
+
 #import "FXBlurView.h"
 
 static void *RPBlurredImageViewContext = &RPBlurredImageViewContext;
@@ -19,6 +23,8 @@ static NSString *const RPPercentage = @"uploadPercentage";
 
 @property(nonatomic,strong)id<RPImageUploaderViewModel> imageUploaderViewModel;
 @property(nonatomic,weak)FXBlurView *blurredView;
+
+@property(nonatomic,strong)RACSignal *signal;
 
 @end
 
@@ -45,20 +51,14 @@ static NSString *const RPPercentage = @"uploadPercentage";
         self.imageUploaderViewModel = imageUploaderViewModel;
         self.image = _imageUploaderViewModel.imageToBeUploaded;
         
+        self.signal = [RACSignal empty];
+        
         [self setupBlurredImageView];
         [self setupBlurredView];
-        [self setupKVO];
+        [self setupRACObserve];
     }
     
     return self;
-}
-
-
-#pragma mark - Dealloc
-
-- (void)dealloc
-{
-    [self removeObserver:_imageUploaderViewModel forKeyPath:RPPercentage context:RPBlurredImageViewContext];
 }
 
 #pragma mark - Setup
@@ -66,6 +66,7 @@ static NSString *const RPPercentage = @"uploadPercentage";
 - (void)setupBlurredView
 {
     _blurredView = [self defaultBlurredView];;
+    [_blurredView setDynamic:NO];
     [self addSubview:_blurredView];
 }
 
@@ -75,25 +76,37 @@ static NSString *const RPPercentage = @"uploadPercentage";
     [self setContentMode:UIViewContentModeScaleAspectFit];
 }
 
-- (void)setupKVO
+- (void)setupRACObserve
 {
-    [self addObserver:self.imageUploaderViewModel forKeyPath:RPPercentage options:NSKeyValueObservingOptionNew context:RPBlurredImageViewContext];
+    @weakify(self);
+    RACSignal *uploadSignal = [RACObserve(self.imageUploaderViewModel, uploadPercentage) map:^id(NSNumber *updatePercentage){
+        @strongify(self);
+        
+        int newX = (int)ceil(updatePercentage.doubleValue * self.frame.size.width);
+        int newWidth = (int)self.frame.size.width - newX;
+        
+        CGRect newFrame = CGRectMake(newX, CGRectGetMinY(self.blurredView.frame), newWidth, CGRectGetHeight(self.blurredView.frame));
+        
+        return [NSValue valueWithCGRect:newFrame];
+    }];
+    
+    [self setupBlurViewAnimationWithUploadSignal:uploadSignal];
 }
 
-#pragma mark - KVO
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+- (void)setupBlurViewAnimationWithUploadSignal:(RACSignal *)uploadSignal
 {
-    if (context == RPBlurredImageViewContext)
-    {
-        if ([keyPath isEqualToString:RPPercentage])
+    @weakify(self);
+    NSValue *currentFrame = [NSValue valueWithCGRect:self.blurredView.frame];
+    RAC(self.blurredView,rcl_frame,currentFrame) = [[uploadSignal animateWithDuration:0.3f] doAnimationCompleted:^(NSValue *newFrame) {
+        @strongify(self);
+        if (newFrame.CGRectValue.size.width <= 0)
         {
-            // TODO: Handle the percentage
+            [self.blurredView removeFromSuperview];
         }
-    }
+    }];
 }
 
-#pragma mark - Getter
+#pragma mark - BlurredView Creation
 
 - (FXBlurView *)defaultBlurredView
 {
@@ -104,22 +117,5 @@ static NSString *const RPPercentage = @"uploadPercentage";
     
     return blurView;
 }
-
-#pragma mark - Testing
-
-- (void)animate
-{
-    [self.blurredView updateAsynchronously:YES completion:NULL];
-    [FXBlurView setUpdatesDisabled];
-    
-    [UIView animateWithDuration:10.0f animations:^{
-        [self.blurredView setFrame:CGRectMake(CGRectGetWidth(self.blurredView.frame), CGRectGetMinY(self.blurredView.frame), 0.0f, CGRectGetHeight(self.blurredView.frame))];
-        
-    } completion:^(BOOL finished) {
-        [self.blurredView removeFromSuperview];
-        [FXBlurView setUpdatesEnabled];
-    }];
-}
-
 
 @end

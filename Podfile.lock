@@ -1,10 +1,25 @@
 PODS:
+  - Archimedes (1.1)
   - FXBlurView (1.6)
+  - ReactiveCocoa (2.3):
+    - ReactiveCocoa/Core
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/Core (2.3):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3)
+  - ReactiveCocoaLayout (0.4):
+    - Archimedes
+    - ReactiveCocoa (~> 2.0)
 
 DEPENDENCIES:
   - FXBlurView (~> 1.6)
+  - ReactiveCocoa/Core (~> 2.3)
+  - ReactiveCocoaLayout (~> 0.4)
 
 SPEC CHECKSUMS:
+  Archimedes: 1d1093ecde61c160ac046369bf4fe5175789b663
   FXBlurView: 06f9f602d529c8e2d87648293d73a618621d3d81
+  ReactiveCocoa: 1f6265f9d521923d3efcc37b00722cefc16df269
+  ReactiveCocoaLayout: 9e20c9574801c5b146ad11a01e19ca47e2dfb3ff
 
 COCOAPODS: 0.31.1

@@ -43,7 +43,7 @@
         [[self view] addSubview:blurredImageView];
         
         
-        [mockViewModel startFakeUpload];
+        [mockViewModel startFakeUploadWithInitialPercentage:@.1f];
     }
 }
 

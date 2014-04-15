@@ -35,9 +35,17 @@
 
 #pragma mark - Mock Methods
 
-- (void)startFakeUpload
+-(void)startFakeUploadWithInitialPercentage:(NSNumber *)initialPercentage;
 {
-    self.uploadPercentage = @1;
+    if (initialPercentage.doubleValue > 1.1f)
+    {
+        return;
+    }
+    
+    self.uploadPercentage = initialPercentage;
+    NSNumber *newPercentage = @([initialPercentage doubleValue]+.1f);
+    
+    [self performSelector:@selector(startFakeUploadWithInitialPercentage:) withObject:newPercentage afterDelay:1.3f];
 }
 
 @end
