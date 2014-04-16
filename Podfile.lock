@@ -1,4 +1,23 @@
 PODS:
+  - AFNetworking (2.2.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.2.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.2.2):
+    - AFNetworking/NSURLConnection
+  - AFNetworking/Reachability (2.2.2)
+  - AFNetworking/Security (2.2.2)
+  - AFNetworking/Serialization (2.2.2)
+  - AFNetworking/UIKit (2.2.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - Archimedes (1.1)
   - FXBlurView (1.6)
   - ReactiveCocoa (2.3):
@@ -12,14 +31,16 @@ PODS:
     - ReactiveCocoa (~> 2.0)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.2)
   - FXBlurView (~> 1.6)
   - ReactiveCocoa/Core (~> 2.3)
   - ReactiveCocoaLayout (~> 0.4)
 
 SPEC CHECKSUMS:
+  AFNetworking: dd8c1868e57451e3d17ebd3516f2a8c16f9646fe
   Archimedes: 1d1093ecde61c160ac046369bf4fe5175789b663
   FXBlurView: 06f9f602d529c8e2d87648293d73a618621d3d81
   ReactiveCocoa: 1f6265f9d521923d3efcc37b00722cefc16df269
   ReactiveCocoaLayout: 9e20c9574801c5b146ad11a01e19ca47e2dfb3ff
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.32.1

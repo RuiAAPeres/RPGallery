@@ -11,6 +11,9 @@
 #import "RPImageUploaderViewModel.h"
 #import "RPBlurredImageView.h"
 #import "RPMockViewModel.h"
+#import "AFURLSessionManager.h"
+
+#import "AFURLRequestSerialization.h"
 
 @interface RPExampleViewController ()
 
@@ -27,24 +30,26 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];
     
-    {
-        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"www.google.com"]];
-        UIImage *image = [UIImage imageNamed:@"example.png"];
-      //  RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithImage:image request:request];
-        
-        RPMockViewModel *mockViewModel = [[RPMockViewModel alloc] initWithImage:image request:request];
-        
-        RPBlurredImageView *blurredImageView = [[RPBlurredImageView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) uploaderViewModel:mockViewModel];
-        
-        [[self view] addSubview:blurredImageView];
-        
-        
-        [mockViewModel startFakeUploadWithInitialPercentage:@.1f];
-    }
+    UIImage *image = [UIImage imageNamed:@"example.png"];
+    NSData *imageData = UIImagePNGRepresentation(image);
+
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://483e97e8.ngrok.com/upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file.png" mimeType:@"image/png"];
+    } error:nil];
+    
+    RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
+    
+    
+    RPBlurredImageView *blurredImageView = [[RPBlurredImageView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) image:image uploaderViewModel:imageUploaderViewModel];
+    
+    [[self view] addSubview:blurredImageView];
+    [imageUploaderViewModel start];
 }
 
 

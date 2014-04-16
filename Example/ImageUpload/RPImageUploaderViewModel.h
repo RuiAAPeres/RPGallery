@@ -15,15 +15,19 @@
 @protocol RPImageUploaderViewModel <NSObject>
 
 /**
- Designated initializer wichs receives an image and a request. The request will then
- be used to make the upload of the image, while the image will serve two purposes:
- 1) Be uploaded
- 2) Be presented on the RPBlurredImageView
+ * Designated initializer wichs receives an image and a request. The request will then
+ * be used to make the upload of the image, while the image will serve two purposes:
+ * 1) Be uploaded
+ * 2) Be presented on the RPBlurredImageView
  */
-- (instancetype)initWithImage:(UIImage *)image request:(NSURLRequest *)request;
+- (instancetype)initWithRequest:(NSURLRequest *)request;
 
-@property(nonatomic,readonly)NSNumber *uploadPercentage;
-@property(nonatomic,strong,readonly)UIImage *imageToBeUploaded;
+/**
+ *  Used to start the upload from the Model part
+ */
+- (void)start;
+
+@property(nonatomic,strong,readonly)NSProgress *uploadProgress;
 
 @end
 
@@ -31,5 +35,6 @@
  Used as ViewModel for the RPBlurredImageView.
  */
 @interface RPImageUploaderViewModel : NSObject <RPImageUploaderViewModel>
+
 
 @end

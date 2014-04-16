@@ -7,14 +7,15 @@
 //
 
 #import "RPImageUploader.h"
+#import "AFURLSessionManager.h"
+#import "ReactiveCocoa.h"
 
 @interface RPImageUploader () <NSURLSessionTaskDelegate>
 
-@property(nonatomic,strong)NSURLSessionUploadTask *uploadTask;
+@property(nonatomic,strong)NSURLSessionDataTask *uploadTask;
 
 @property(nonatomic)BOOL isFinished;
 @property(nonatomic)BOOL isFailed;
-@property(nonatomic)double uploadPercentage;
 
 @end
 
@@ -28,14 +29,13 @@
     return nil;
 }
 
-- (instancetype)initWithRequest:(NSURLRequest *)request imageData:(NSData *)imageData
+- (instancetype)initWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress
 {
-    NSAssert(imageData, @"Image should be not nil");
     NSAssert(request, @"Request should be not nil");
     
     if(self = [super init])
     {
-        _uploadTask = [self uploadTaskWithRequest:request imageData:imageData];
+        self.uploadTask = [self uploadTaskWithRequest:request progress:progress];
         [self setDefaultKVOValues];
     }
     
@@ -55,39 +55,55 @@
 {
     _isFailed = NO;
     _isFinished = NO;
-    _uploadPercentage = 0;
 }
 
 #pragma mark - NSURLSession
 
-- (NSURLSessionUploadTask *)uploadTaskWithRequest:(NSURLRequest *)request imageData:(NSData *)data
+- (NSURLSessionDataTask *)uploadTaskWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress
 {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:nil];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     
-    _uploadTask = [session uploadTaskWithRequest:request fromData:data];
+    __weak typeof(self) weakSelf = self;
     
-    return _uploadTask;
+    NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error)
+        {
+            weakSelf.isFailed = YES;
+        } else
+        {
+            weakSelf.isFinished = YES;
+        }
+    }];
+        
+    return uploadTask;
 }
+
+
 
 #pragma mark - NSURLSessionTaskDelegate
 
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
-{
-   self.uploadPercentage = (double)totalBytesSent / (double)totalBytesExpectedToSend;
-}
-
-- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
-{
-    if (error)
-    {
-        self.isFailed = YES;
-    }
-    else
-    {
-        self.isFinished = YES;
-    }
-}
+//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
+//{
+//   self.uploadPercentage = [NSNumber numberWithDouble:(double)totalBytesSent / (double)totalBytesExpectedToSend];
+//    NSLog(@"%@",self.uploadPercentage);
+//}
+//
+//- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error
+//{
+//    
+//}
+//
+//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
+//{
+//    if (error)
+//    {
+//        self.isFailed = YES;
+//    }
+//    else
+//    {
+//        self.isFinished = YES;
+//    }
+//}
 
 #pragma mark - Manual Controls
 

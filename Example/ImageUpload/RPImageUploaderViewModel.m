@@ -9,6 +9,8 @@
 #import "RPImageUploaderViewModel.h"
 #import "RPImageUploader.h"
 
+#import "ReactiveCocoa.h"
+
 static NSString *const RPImageUploaderViewModelContext = @"RPImageUploaderViewModelContext";
 
 static NSString *const RPPercentage = @"uploadPercentage";
@@ -17,9 +19,7 @@ static NSString *const RPIsFailed = @"isFailed";
 
 @interface RPImageUploaderViewModel ()
 
-@property(nonatomic,strong)UIImage *imageToBeUploaded;
-@property(nonatomic)NSNumber *uploadPercentage;
-
+@property(nonatomic,strong)NSProgress *uploadProgress;
 @property(nonatomic,strong)RPImageUploader *imageUploader;
 
 @end
@@ -34,65 +34,44 @@ static NSString *const RPIsFailed = @"isFailed";
     return nil;
 }
 
-- (instancetype)initWithImage:(UIImage *)image request:(NSURLRequest *)request
+- (instancetype)initWithRequest:(NSURLRequest *)request
 {
-    NSAssert(image, @"Image should be not nil");
     NSAssert(request, @"Request should be not nil");
 
     if (self = [super init])
     {
-        _imageToBeUploaded = image;
-        _uploadPercentage = @0;
-        //TODO: There should possible to create an NSData
-        //      from the picture in different ways.
-        //      An alternative could be passing a function into the initializer,
-        //      that would take an UIImage and return a NSData.
-        NSData *imageData = UIImageJPEGRepresentation(image, 0.6f);
-        
-        _imageUploader = [[RPImageUploader alloc] initWithRequest:request imageData:imageData];
-        [self setupKVO];
+        NSProgress *temporaryProgress = nil;
+        _imageUploader = [[RPImageUploader alloc] initWithRequest:request progress:&temporaryProgress];
+        self.uploadProgress = temporaryProgress;
+        [self setupSignals];
     }
     
     return self;
 }
 
-#pragma mark - Dealloc
+#pragma mark - Setup Signals
 
-- (void)dealloc
+- (void)setupSignals
 {
-    [self removeObserver:_imageUploader forKeyPath:RPPercentage context:(__bridge void *)(RPImageUploaderViewModelContext)];
     
-    [self removeObserver:_imageUploader forKeyPath:RPIsFailed context:(__bridge void *)(RPImageUploaderViewModelContext)];
+    [RACObserve(self, uploadProgress) subscribeNext:^(id x) {
+        NSLog(@"%@",x);
+    }];
     
-    [self removeObserver:_imageUploader forKeyPath:RPIsFinished context:(__bridge void *)(RPImageUploaderViewModelContext)];
+    [RACObserve(self.imageUploader, isFailed) subscribeNext:^(id x) {
+        //TODO: Notify it has failed
+    }];
+    
+    [RACObserve(self.imageUploader, isFinished) subscribeNext:^(id x) {
+        //TODO: Notify it has finished
+    }];
 }
 
-#pragma mark - KVO
+#pragma mark - Model Ignition
 
-- (void)setupKVO
+- (void)start
 {
-    [self addObserver:_imageUploader forKeyPath:RPPercentage options:NSKeyValueObservingOptionNew context:(__bridge void *)(RPImageUploaderViewModelContext)];
-    
-    
-    /// TODO: Report Back the failure and Finished
-    [self addObserver:_imageUploader forKeyPath:RPIsFailed options:NSKeyValueObservingOptionNew context:(__bridge void *)(RPImageUploaderViewModelContext)];
-    
-    [self addObserver:_imageUploader forKeyPath:RPIsFinished options:NSKeyValueObservingOptionNew context:(__bridge void *)(RPImageUploaderViewModelContext)];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
-{
-    if (context == (__bridge void *)(RPImageUploaderViewModelContext))
-    {
-        if ([keyPath isEqualToString:RPPercentage])
-        {
-            self.uploadPercentage = [change objectForKey:NSKeyValueChangeNewKey];
-        }
-        else
-        {
-            [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-        }
-    }
+    [_imageUploader resume];
 }
 
 @end

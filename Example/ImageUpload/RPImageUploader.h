@@ -7,20 +7,18 @@
 //
 
 /**
- Responsible for uploading an image
+ * Responsible for uploading an image
  */
 @interface RPImageUploader : NSObject
 
-/// Properties used for KVO (isFinish, hasFailed, percentage)
+/// Properties used for KVO (isFinish, hasFailed)
 @property(nonatomic,readonly)BOOL isFinished;
 @property(nonatomic,readonly)BOOL isFailed;
-@property(nonatomic,readonly)double uploadPercentage;
 
 /**
- Designated Initializer. Receives a request and the image's Data. This 
- can be build for example like:
-*/
-- (instancetype)initWithRequest:(NSURLRequest *)request imageData:(NSData *)imageData;
+ * Designated Initializer. Receives a request with the image's Data.
+ */
+- (instancetype)initWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress;
 
 /// Manual Operations
 - (void)cancel;

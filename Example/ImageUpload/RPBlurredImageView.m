@@ -44,12 +44,12 @@ static NSString *const RPPercentage = @"uploadPercentage";
     return nil;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame uploaderViewModel:(id<RPImageUploaderViewModel>)imageUploaderViewModel
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image uploaderViewModel:(id<RPImageUploaderViewModel>)imageUploaderViewModel
 {
     if (self = [super initWithFrame:frame])
     {
         self.imageUploaderViewModel = imageUploaderViewModel;
-        self.image = _imageUploaderViewModel.imageToBeUploaded;
+        self.image = image;
         
         self.signal = [RACSignal empty];
         
@@ -79,16 +79,16 @@ static NSString *const RPPercentage = @"uploadPercentage";
 - (void)setupRACObserve
 {
     @weakify(self);
-    RACSignal *uploadSignal = [RACObserve(self.imageUploaderViewModel, uploadPercentage) map:^id(NSNumber *updatePercentage){
+    RACSignal *uploadSignal = [[RACObserve(self.imageUploaderViewModel, uploadProgress.fractionCompleted) map:^id(NSNumber *uploadProgress){
         @strongify(self);
         
-        int newX = (int)ceil(updatePercentage.doubleValue * self.frame.size.width);
+        int newX = (int)ceil(uploadProgress.doubleValue * self.frame.size.width);
         int newWidth = (int)self.frame.size.width - newX;
         
         CGRect newFrame = CGRectMake(newX, CGRectGetMinY(self.blurredView.frame), newWidth, CGRectGetHeight(self.blurredView.frame));
         
         return [NSValue valueWithCGRect:newFrame];
-    }];
+    }] deliverOn:RACScheduler.mainThreadScheduler];
     
     [self setupBlurViewAnimationWithUploadSignal:uploadSignal];
 }
@@ -97,7 +97,7 @@ static NSString *const RPPercentage = @"uploadPercentage";
 {
     @weakify(self);
     NSValue *currentFrame = [NSValue valueWithCGRect:self.blurredView.frame];
-    RAC(self.blurredView,rcl_frame,currentFrame) = [[uploadSignal animateWithDuration:0.3f] doAnimationCompleted:^(NSValue *newFrame) {
+    RAC(self.blurredView,rcl_frame,currentFrame) = [[[uploadSignal throttle:0.3f] animateWithDuration:0.3f] doAnimationCompleted:^(NSValue *newFrame) {
         @strongify(self);
         if (newFrame.CGRectValue.size.width <= 0)
         {

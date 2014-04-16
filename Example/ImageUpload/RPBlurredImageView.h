@@ -9,16 +9,14 @@
 @protocol RPImageUploaderViewModel;
 
 /**
- Used to show an image's preview, while the same is being uploaded. The progress
- will be indicated by a blur view on top of it
+ * Used to show an image's preview, while the same is being uploaded. The progress
+ * will be indicated by a blur view on top of it
  */
 @interface RPBlurredImageView : UIImageView
 
 /**
- Designated Initializer.
+ * Designated Initializer.
  */
-- (instancetype)initWithFrame:(CGRect)frame uploaderViewModel:(id <RPImageUploaderViewModel>)imageUploaderViewModel;
-
-- (void)animate;
+- (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image uploaderViewModel:(id <RPImageUploaderViewModel>)imageUploaderViewModel;
 
 @end
