@@ -9,12 +9,10 @@
 @protocol RPImageUploaderViewModel;
 
 /**
- Used to show an image, while the same is being uploaded. The progress
+ Used to show an image's preview, while the same is being uploaded. The progress
  will be indicated by a blur view on top of it
  */
 @interface RPBlurredImageView : UIImageView
-
-@property(nonatomic,readonly)double percentage;
 
 /**
  Designated Initializer.

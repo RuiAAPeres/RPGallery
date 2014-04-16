@@ -10,6 +10,6 @@
 
 @interface RPMockViewModel : NSObject <RPImageUploaderViewModel>
 
--(void)startFakeUpload;
+-(void)startFakeUploadWithInitialPercentage:(NSNumber *)initialPercentage;
 
 @end
