@@ -14,6 +14,8 @@
 */
 @protocol RPImageUploaderViewModel <NSObject>
 
+@property(nonatomic,strong,readonly)NSProgress *uploadProgress;
+
 /**
  * Designated initializer wichs receives an image and a request. The request will then
  * be used to make the upload of the image, while the image will serve two purposes:
@@ -26,8 +28,6 @@
  *  Used to start the upload from the Model part
  */
 - (void)start;
-
-@property(nonatomic,strong,readonly)NSProgress *uploadProgress;
 
 @end
 

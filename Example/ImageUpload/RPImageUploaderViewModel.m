@@ -8,7 +8,6 @@
 
 #import "RPImageUploaderViewModel.h"
 #import "RPImageUploader.h"
-
 #import "ReactiveCocoa.h"
 
 static NSString *const RPImageUploaderViewModelContext = @"RPImageUploaderViewModelContext";
@@ -40,9 +39,7 @@ static NSString *const RPIsFailed = @"isFailed";
 
     if (self = [super init])
     {
-        NSProgress *temporaryProgress = nil;
-        _imageUploader = [[RPImageUploader alloc] initWithRequest:request progress:&temporaryProgress];
-        self.uploadProgress = temporaryProgress;
+        _imageUploader = [[RPImageUploader alloc] initWithRequest:request];
         [self setupSignals];
     }
     
@@ -53,8 +50,9 @@ static NSString *const RPIsFailed = @"isFailed";
 
 - (void)setupSignals
 {
+    RAC(self,uploadProgress) = RACObserve(self.imageUploader,uploadProgress);
     
-    [RACObserve(self, uploadProgress) subscribeNext:^(id x) {
+    [RACObserve(self, uploadProgress.fractionCompleted) subscribeNext:^(id x) {
         NSLog(@"%@",x);
     }];
     

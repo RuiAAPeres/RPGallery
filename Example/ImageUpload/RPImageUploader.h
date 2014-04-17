@@ -14,11 +14,12 @@
 /// Properties used for KVO (isFinish, hasFailed)
 @property(nonatomic,readonly)BOOL isFinished;
 @property(nonatomic,readonly)BOOL isFailed;
+@property(nonatomic,strong,readonly)NSProgress *uploadProgress;
 
 /**
- * Designated Initializer. Receives a request with the image's Data.
+ * Designated Initializer.
  */
-- (instancetype)initWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress;
+- (instancetype)initWithRequest:(NSURLRequest *)request;
 
 /// Manual Operations
 - (void)cancel;

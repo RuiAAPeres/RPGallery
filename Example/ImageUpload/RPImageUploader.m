@@ -16,6 +16,7 @@
 
 @property(nonatomic)BOOL isFinished;
 @property(nonatomic)BOOL isFailed;
+@property(nonatomic,strong)NSProgress *uploadProgress;
 
 @end
 
@@ -29,13 +30,16 @@
     return nil;
 }
 
-- (instancetype)initWithRequest:(NSURLRequest *)request progress:(NSProgress * __autoreleasing *)progress
+- (instancetype)initWithRequest:(NSURLRequest *)request
 {
     NSAssert(request, @"Request should be not nil");
     
     if(self = [super init])
     {
-        self.uploadTask = [self uploadTaskWithRequest:request progress:progress];
+        NSProgress *progress;
+        self.uploadTask = [self uploadTaskWithRequest:request progress:&progress];
+        self.uploadProgress = progress;
+        
         [self setDefaultKVOValues];
     }
     
@@ -74,36 +78,9 @@
             weakSelf.isFinished = YES;
         }
     }];
-        
+    
     return uploadTask;
 }
-
-
-
-#pragma mark - NSURLSessionTaskDelegate
-
-//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend
-//{
-//   self.uploadPercentage = [NSNumber numberWithDouble:(double)totalBytesSent / (double)totalBytesExpectedToSend];
-//    NSLog(@"%@",self.uploadPercentage);
-//}
-//
-//- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error
-//{
-//    
-//}
-//
-//- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
-//{
-//    if (error)
-//    {
-//        self.isFailed = YES;
-//    }
-//    else
-//    {
-//        self.isFinished = YES;
-//    }
-//}
 
 #pragma mark - Manual Controls
 
