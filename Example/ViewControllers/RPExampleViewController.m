@@ -10,7 +10,6 @@
 
 #import "RPImageUploaderViewModel.h"
 #import "RPBlurredImageView.h"
-#import "RPMockViewModel.h"
 #import "AFURLSessionManager.h"
 
 #import "AFURLRequestSerialization.h"
@@ -30,16 +29,14 @@
     return self;
 }
 
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     UIImage *image = [UIImage imageNamed:@"example.png"];
     NSData *imageData = UIImagePNGRepresentation(image);
-
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"http://38161330.ngrok.com/upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+    
+    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST"URLString:@"http://38161330.ngrok.com/upload"parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
         [formData appendPartWithFileData:imageData name:@"file" fileName:@"file.png" mimeType:@"image/png"];
     } error:nil];
     
@@ -51,6 +48,5 @@
     [[self view] addSubview:blurredImageView];
     [imageUploaderViewModel start];
 }
-
 
 @end

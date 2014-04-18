@@ -4,3 +4,7 @@ pod 'FXBlurView', '~> 1.6'
 pod 'ReactiveCocoa/Core', '~> 2.3'
 pod 'ReactiveCocoaLayout', '~> 0.4'
 pod 'AFNetworking', '~> 2.2'
+
+target :ExampleTests, :exclusive => true do
+  pod 'Kiwi/XCTest'
+end

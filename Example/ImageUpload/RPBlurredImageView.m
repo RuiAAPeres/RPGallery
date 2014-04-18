@@ -34,13 +34,11 @@ static NSString *const RPPercentage = @"uploadPercentage";
 
 - (instancetype)init
 {
-    NSAssert(NO, @"init method shouldn't be used. Use initWithFrame:uploaderViewModel: instead");
     return nil;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-    NSAssert(NO, @"initWithFrame: method shouldn't be used. Use initWithFrame:uploaderViewModel: instead");
     return nil;
 }
 

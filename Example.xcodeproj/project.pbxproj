@@ -8,12 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		154C7600B8744B0FBF9906B1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DE6ECAD6734E35B869CA47 /* libPods.a */; };
+		B5371070DAC84C718AF4354F /* libPods-ExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35BC1C3B1BED486088367058 /* libPods-ExampleTests.a */; };
 		C785CFB118F89EFE00F8AC16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB018F89EFE00F8AC16 /* Foundation.framework */; };
 		C785CFB318F89EFE00F8AC16 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB218F89EFE00F8AC16 /* CoreGraphics.framework */; };
 		C785CFB518F89EFE00F8AC16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB418F89EFE00F8AC16 /* UIKit.framework */; };
-		C785CFCA18F89EFF00F8AC16 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFC918F89EFF00F8AC16 /* XCTest.framework */; };
-		C785CFCB18F89EFF00F8AC16 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB018F89EFE00F8AC16 /* Foundation.framework */; };
-		C785CFCC18F89EFF00F8AC16 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB418F89EFE00F8AC16 /* UIKit.framework */; };
 		C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE118F89F2500F8AC16 /* RPAppDelegate.m */; };
 		C785CFE818F89F2500F8AC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE518F89F2500F8AC16 /* main.m */; };
 		C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */; };
@@ -21,12 +19,15 @@
 		C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF718F9847900F8AC16 /* RPExampleViewController.m */; };
 		C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */; };
 		C785D00118F9E56A00F8AC16 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = C785D00018F9E56A00F8AC16 /* example.png */; };
-		C785D00818F9F2AC00F8AC16 /* RPMockViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */; };
-		C785D00918F9F47E00F8AC16 /* RPMockViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */; };
+		C78E33821901B75200C88F11 /* RPPImageUploaderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C78E33811901B75200C88F11 /* RPPImageUploaderSpec.m */; };
+		C78E33841901B96400C88F11 /* RPMockImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C78E33831901B96400C88F11 /* RPMockImageUploaderViewModel.m */; };
+		C7D239C41901B3C40079ACEA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFC918F89EFF00F8AC16 /* XCTest.framework */; };
+		C7D239C51901B3C40079ACEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB018F89EFE00F8AC16 /* Foundation.framework */; };
+		C7D239C61901B3C40079ACEA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB418F89EFE00F8AC16 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		C785CFCD18F89EFF00F8AC16 /* PBXContainerItemProxy */ = {
+		C7D239D01901B3C40079ACEA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C785CFA518F89EFE00F8AC16 /* Project object */;
 			proxyType = 1;
@@ -37,12 +38,12 @@
 
 /* Begin PBXFileReference section */
 		151D9C0A4E7F4D57B30A5AAD /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		35BC1C3B1BED486088367058 /* libPods-ExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		54DE6ECAD6734E35B869CA47 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785CFAD18F89EFE00F8AC16 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785CFB018F89EFE00F8AC16 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C785CFB218F89EFE00F8AC16 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C785CFB418F89EFE00F8AC16 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C785CFC818F89EFF00F8AC16 /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C785CFC918F89EFF00F8AC16 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		C785CFE018F89F2500F8AC16 /* RPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPAppDelegate.h; sourceTree = "<group>"; };
 		C785CFE118F89F2500F8AC16 /* RPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPAppDelegate.m; sourceTree = "<group>"; };
@@ -58,9 +59,12 @@
 		C785CFFD18F9971E00F8AC16 /* RPImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPImageUploader.h; sourceTree = "<group>"; };
 		C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploader.m; sourceTree = "<group>"; };
 		C785D00018F9E56A00F8AC16 /* example.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = example.png; sourceTree = "<group>"; };
-		C785D00318F9F24900F8AC16 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
-		C785D00618F9F2AC00F8AC16 /* RPMockViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPMockViewModel.h; sourceTree = "<group>"; };
-		C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPMockViewModel.m; sourceTree = "<group>"; };
+		C78E337B1901B6EE00C88F11 /* RPMockImageUploaderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPMockImageUploaderViewModel.h; sourceTree = "<group>"; };
+		C78E337D1901B6EE00C88F11 /* ExampleTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ExampleTests-Info.plist"; sourceTree = "<group>"; };
+		C78E33811901B75200C88F11 /* RPPImageUploaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPPImageUploaderSpec.m; sourceTree = "<group>"; };
+		C78E33831901B96400C88F11 /* RPMockImageUploaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPMockImageUploaderViewModel.m; sourceTree = "<group>"; };
+		C7D239C31901B3C40079ACEA /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB232E86C22D4EB28DABDA52 /* Pods-ExampleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.xcconfig"; path = "Pods/Pods-ExampleTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,13 +79,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C785CFC518F89EFF00F8AC16 /* Frameworks */ = {
+		C7D239C01901B3C40079ACEA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C785CFCA18F89EFF00F8AC16 /* XCTest.framework in Frameworks */,
-				C785CFCC18F89EFF00F8AC16 /* UIKit.framework in Frameworks */,
-				C785CFCB18F89EFF00F8AC16 /* Foundation.framework in Frameworks */,
+				C7D239C41901B3C40079ACEA /* XCTest.framework in Frameworks */,
+				C7D239C61901B3C40079ACEA /* UIKit.framework in Frameworks */,
+				C7D239C51901B3C40079ACEA /* Foundation.framework in Frameworks */,
+				B5371070DAC84C718AF4354F /* libPods-ExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,10 +97,11 @@
 			isa = PBXGroup;
 			children = (
 				C785CFB618F89EFE00F8AC16 /* Example */,
-				C785CFCF18F89EFF00F8AC16 /* ExampleTests */,
+				C7D239C71901B3C40079ACEA /* ExampleTests */,
 				C785CFAF18F89EFE00F8AC16 /* Frameworks */,
 				C785CFAE18F89EFE00F8AC16 /* Products */,
 				151D9C0A4E7F4D57B30A5AAD /* Pods.xcconfig */,
+				FB232E86C22D4EB28DABDA52 /* Pods-ExampleTests.xcconfig */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -106,7 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				C785CFAD18F89EFE00F8AC16 /* Example.app */,
-				C785CFC818F89EFF00F8AC16 /* ExampleTests.xctest */,
+				C7D239C31901B3C40079ACEA /* ExampleTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -119,6 +125,7 @@
 				C785CFB418F89EFE00F8AC16 /* UIKit.framework */,
 				C785CFC918F89EFF00F8AC16 /* XCTest.framework */,
 				54DE6ECAD6734E35B869CA47 /* libPods.a */,
+				35BC1C3B1BED486088367058 /* libPods-ExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,15 +139,6 @@
 				C785CFE218F89F2500F8AC16 /* Supporting Files */,
 			);
 			path = Example;
-			sourceTree = "<group>";
-		};
-		C785CFCF18F89EFF00F8AC16 /* ExampleTests */ = {
-			isa = PBXGroup;
-			children = (
-				C785D00518F9F29E00F8AC16 /* Mock */,
-				C785D00218F9F24900F8AC16 /* Supporting Files */,
-			);
-			path = ExampleTests;
 			sourceTree = "<group>";
 		};
 		C785CFDF18F89F2500F8AC16 /* App Delegate */ = {
@@ -185,21 +183,39 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		C785D00218F9F24900F8AC16 /* Supporting Files */ = {
+		C78E33791901B6EE00C88F11 /* Mock Objects */ = {
 			isa = PBXGroup;
 			children = (
-				C785D00318F9F24900F8AC16 /* ExampleTests-Info.plist */,
+				C78E337B1901B6EE00C88F11 /* RPMockImageUploaderViewModel.h */,
+				C78E33831901B96400C88F11 /* RPMockImageUploaderViewModel.m */,
+			);
+			path = "Mock Objects";
+			sourceTree = "<group>";
+		};
+		C78E337C1901B6EE00C88F11 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C78E337D1901B6EE00C88F11 /* ExampleTests-Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C785D00518F9F29E00F8AC16 /* Mock */ = {
+		C78E33801901B74700C88F11 /* ImageUploader Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C785D00618F9F2AC00F8AC16 /* RPMockViewModel.h */,
-				C785D00718F9F2AC00F8AC16 /* RPMockViewModel.m */,
+				C78E33811901B75200C88F11 /* RPPImageUploaderSpec.m */,
 			);
-			path = Mock;
+			path = "ImageUploader Tests";
+			sourceTree = "<group>";
+		};
+		C7D239C71901B3C40079ACEA /* ExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				C78E33801901B74700C88F11 /* ImageUploader Tests */,
+				C78E33791901B6EE00C88F11 /* Mock Objects */,
+				C78E337C1901B6EE00C88F11 /* Supporting Files */,
+			);
+			path = ExampleTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,22 +241,24 @@
 			productReference = C785CFAD18F89EFE00F8AC16 /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C785CFC718F89EFF00F8AC16 /* ExampleTests */ = {
+		C7D239C21901B3C40079ACEA /* ExampleTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C785CFDC18F89EFF00F8AC16 /* Build configuration list for PBXNativeTarget "ExampleTests" */;
+			buildConfigurationList = C7D239D21901B3C40079ACEA /* Build configuration list for PBXNativeTarget "ExampleTests" */;
 			buildPhases = (
-				C785CFC418F89EFF00F8AC16 /* Sources */,
-				C785CFC518F89EFF00F8AC16 /* Frameworks */,
-				C785CFC618F89EFF00F8AC16 /* Resources */,
+				CECCA2C271324A0F8615E579 /* Check Pods Manifest.lock */,
+				C7D239BF1901B3C40079ACEA /* Sources */,
+				C7D239C01901B3C40079ACEA /* Frameworks */,
+				C7D239C11901B3C40079ACEA /* Resources */,
+				858A92323DB2487FBC9C2F7E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				C785CFCE18F89EFF00F8AC16 /* PBXTargetDependency */,
+				C7D239D11901B3C40079ACEA /* PBXTargetDependency */,
 			);
 			name = ExampleTests;
 			productName = ExampleTests;
-			productReference = C785CFC818F89EFF00F8AC16 /* ExampleTests.xctest */;
+			productReference = C7D239C31901B3C40079ACEA /* ExampleTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -253,7 +271,7 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Rui Peres";
 				TargetAttributes = {
-					C785CFC718F89EFF00F8AC16 = {
+					C7D239C21901B3C40079ACEA = {
 						TestTargetID = C785CFAC18F89EFE00F8AC16;
 					};
 				};
@@ -271,7 +289,7 @@
 			projectRoot = "";
 			targets = (
 				C785CFAC18F89EFE00F8AC16 /* Example */,
-				C785CFC718F89EFF00F8AC16 /* ExampleTests */,
+				C7D239C21901B3C40079ACEA /* ExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -285,7 +303,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C785CFC618F89EFF00F8AC16 /* Resources */ = {
+		C7D239C11901B3C40079ACEA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -310,6 +328,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		858A92323DB2487FBC9C2F7E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-ExampleTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B5DADC3E28CB4116A222476D /* Warn for TODO and FIXME comments */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -323,6 +356,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "KEYWORDS=\"TODO:|FIXME:|\\?\\?\\?:|\\!\\!\\!:\"\nFILE_EXTENSIONS=\"h|m|mm|c|cpp\"\nfind -E \"${SRCROOT}\" -ipath \"${SRCROOT}/pods\" -prune -o \\( -regex \".*\\.($FILE_EXTENSIONS)$\" \\) -print0 | xargs -0 egrep --with-filename --line-number --only-matching \"($KEYWORDS).*\\$\" | perl -p -e \"s/($KEYWORDS)/ warning: \\$1/\"\n";
+		};
+		CECCA2C271324A0F8615E579 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		E903D56412B7406C8FB603A6 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -349,28 +397,28 @@
 				C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */,
 				C785CFE818F89F2500F8AC16 /* main.m in Sources */,
 				C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */,
-				C785D00918F9F47E00F8AC16 /* RPMockViewModel.m in Sources */,
 				C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */,
 				C785CFF418F9809900F8AC16 /* RPBlurredImageView.m in Sources */,
 				C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C785CFC418F89EFF00F8AC16 /* Sources */ = {
+		C7D239BF1901B3C40079ACEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C785D00818F9F2AC00F8AC16 /* RPMockViewModel.m in Sources */,
+				C78E33841901B96400C88F11 /* RPMockImageUploaderViewModel.m in Sources */,
+				C78E33821901B75200C88F11 /* RPPImageUploaderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		C785CFCE18F89EFF00F8AC16 /* PBXTargetDependency */ = {
+		C7D239D11901B3C40079ACEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = C785CFAC18F89EFE00F8AC16 /* Example */;
-			targetProxy = C785CFCD18F89EFF00F8AC16 /* PBXContainerItemProxy */;
+			targetProxy = C7D239D01901B3C40079ACEA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -504,8 +552,9 @@
 			};
 			name = Release;
 		};
-		C785CFDD18F89EFF00F8AC16 /* Debug */ = {
+		C7D239D31901B3C40079ACEA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB232E86C22D4EB28DABDA52 /* Pods-ExampleTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -519,15 +568,22 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				INFOPLIST_FILE = "ExampleTests/Supporting Files/ExampleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		C785CFDE18F89EFF00F8AC16 /* Release */ = {
+		C7D239D41901B3C40079ACEA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB232E86C22D4EB28DABDA52 /* Pods-ExampleTests.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -537,7 +593,13 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Example/Supporting Files/Example-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				INFOPLIST_FILE = "ExampleTests/Supporting Files/ExampleTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-framework",
+					SenTestingKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -565,11 +627,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C785CFDC18F89EFF00F8AC16 /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
+		C7D239D21901B3C40079ACEA /* Build configuration list for PBXNativeTarget "ExampleTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C785CFDD18F89EFF00F8AC16 /* Debug */,
-				C785CFDE18F89EFF00F8AC16 /* Release */,
+				C7D239D31901B3C40079ACEA /* Debug */,
+				C7D239D41901B3C40079ACEA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

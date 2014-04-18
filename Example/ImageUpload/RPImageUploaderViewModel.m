@@ -29,7 +29,6 @@ static NSString *const RPIsFailed = @"isFailed";
 
 - (instancetype)init
 {
-    NSAssert(NO, @"init method shouldn't be used. Use initWithImage:request: instead");
     return nil;
 }
 

@@ -26,13 +26,12 @@
 
 - (instancetype)init
 {
-    NSAssert(NO, @"init method shouldn't be used. Use initWithRequest instead");
     return nil;
 }
 
 - (instancetype)initWithRequest:(NSURLRequest *)request
 {
-    NSAssert(request, @"Request should be not nil");
+    if (!request) return nil;
     
     if(self = [super init])
     {

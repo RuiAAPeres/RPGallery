@@ -20,6 +20,11 @@ PODS:
     - AFNetworking/NSURLSession
   - Archimedes (1.1)
   - FXBlurView (1.6)
+  - Kiwi/ARC (2.2.4)
+  - Kiwi/NonARC (2.2.4)
+  - Kiwi/XCTest (2.2.4):
+    - Kiwi/ARC
+    - Kiwi/NonARC
   - ReactiveCocoa (2.3):
     - ReactiveCocoa/Core
     - ReactiveCocoa/no-arc
@@ -33,6 +38,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 2.2)
   - FXBlurView (~> 1.6)
+  - Kiwi/XCTest
   - ReactiveCocoa/Core (~> 2.3)
   - ReactiveCocoaLayout (~> 0.4)
 
@@ -40,6 +46,7 @@ SPEC CHECKSUMS:
   AFNetworking: dd8c1868e57451e3d17ebd3516f2a8c16f9646fe
   Archimedes: 1d1093ecde61c160ac046369bf4fe5175789b663
   FXBlurView: 06f9f602d529c8e2d87648293d73a618621d3d81
+  Kiwi: d60d7498b640a16f58b01925fc3c8d7c4d809f66
   ReactiveCocoa: 1f6265f9d521923d3efcc37b00722cefc16df269
   ReactiveCocoaLayout: 9e20c9574801c5b146ad11a01e19ca47e2dfb3ff
 
