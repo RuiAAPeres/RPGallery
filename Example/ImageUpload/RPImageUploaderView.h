@@ -1,5 +1,5 @@
 //
-//  RPBlurredImageView.h
+//  RPImageUploaderView.h
 //  Example
 //
 //  Created by Rui Peres on 12/04/2014.
@@ -12,7 +12,7 @@
  * Used to show an image's preview, while the same is being uploaded. The progress
  * will be indicated by a blur view on top of it
  */
-@interface RPBlurredImageView : UIImageView
+@interface RPImageUploaderView : UIImageView
 
 /**
  * Designated Initializer.

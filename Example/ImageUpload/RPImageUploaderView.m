@@ -1,12 +1,12 @@
 //
-//  RPBlurredImageView.m
+//  RPImageUploaderView.m
 //  Example
 //
 //  Created by Rui Peres on 12/04/2014.
 //  Copyright (c) 2014 Rui Peres. All rights reserved.
 //
 
-#import "RPBlurredImageView.h"
+#import "RPImageUploaderView.h"
 #import "RPImageUploaderViewModel.h"
 
 #import "ReactiveCocoa.h"
@@ -19,7 +19,7 @@ static void *RPBlurredImageViewContext = &RPBlurredImageViewContext;
 
 static NSString *const RPPercentage = @"uploadPercentage";
 
-@interface RPBlurredImageView ()
+@interface RPImageUploaderView ()
 
 @property(nonatomic,strong)id<RPImageUploaderViewModel> imageUploaderViewModel;
 @property(nonatomic,weak)FXBlurView *blurredView;
@@ -28,7 +28,7 @@ static NSString *const RPPercentage = @"uploadPercentage";
 
 @end
 
-@implementation RPBlurredImageView
+@implementation RPImageUploaderView
 
 #pragma mark - Initializer
 

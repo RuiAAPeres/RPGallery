@@ -16,18 +16,21 @@ describe(@"Image Uploader ViewModel", ^{
         
         it(@"should be nil for init", ^{
             RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] init];
+            
             [[imageUploaderViewModel should] beNil];
         });
         
         it(@"should be nil for nil Request", ^{
             NSURLRequest *request;
             RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
+            
             [[imageUploaderViewModel should] beNil];
         });
         
         it(@"should be non nil for Request", ^{
             NSURLRequest *request = [[NSURLRequest alloc] init];
             RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
+            
             [[imageUploaderViewModel should] beNonNil];
         });
         

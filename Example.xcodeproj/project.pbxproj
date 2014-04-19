@@ -15,7 +15,7 @@
 		C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE118F89F2500F8AC16 /* RPAppDelegate.m */; };
 		C785CFE818F89F2500F8AC16 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFE518F89F2500F8AC16 /* main.m */; };
 		C785CFF118F97DA400F8AC16 /* RPImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */; };
-		C785CFF418F9809900F8AC16 /* RPBlurredImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF318F9809900F8AC16 /* RPBlurredImageView.m */; };
+		C785CFF418F9809900F8AC16 /* RPImageUploaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF318F9809900F8AC16 /* RPImageUploaderView.m */; };
 		C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF718F9847900F8AC16 /* RPExampleViewController.m */; };
 		C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */; };
 		C785D00118F9E56A00F8AC16 /* example.png in Resources */ = {isa = PBXBuildFile; fileRef = C785D00018F9E56A00F8AC16 /* example.png */; };
@@ -56,8 +56,8 @@
 		C785CFE518F89F2500F8AC16 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C785CFEF18F97DA400F8AC16 /* RPImageUploaderViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPImageUploaderViewModel.h; sourceTree = "<group>"; };
 		C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploaderViewModel.m; sourceTree = "<group>"; };
-		C785CFF218F9809900F8AC16 /* RPBlurredImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPBlurredImageView.h; sourceTree = "<group>"; };
-		C785CFF318F9809900F8AC16 /* RPBlurredImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPBlurredImageView.m; sourceTree = "<group>"; };
+		C785CFF218F9809900F8AC16 /* RPImageUploaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPImageUploaderView.h; sourceTree = "<group>"; };
+		C785CFF318F9809900F8AC16 /* RPImageUploaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploaderView.m; sourceTree = "<group>"; };
 		C785CFF618F9847900F8AC16 /* RPExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPExampleViewController.h; sourceTree = "<group>"; };
 		C785CFF718F9847900F8AC16 /* RPExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPExampleViewController.m; sourceTree = "<group>"; };
 		C785CFFD18F9971E00F8AC16 /* RPImageUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPImageUploader.h; sourceTree = "<group>"; };
@@ -173,8 +173,8 @@
 				C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */,
 				C785CFEF18F97DA400F8AC16 /* RPImageUploaderViewModel.h */,
 				C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */,
-				C785CFF218F9809900F8AC16 /* RPBlurredImageView.h */,
-				C785CFF318F9809900F8AC16 /* RPBlurredImageView.m */,
+				C785CFF218F9809900F8AC16 /* RPImageUploaderView.h */,
+				C785CFF318F9809900F8AC16 /* RPImageUploaderView.m */,
 			);
 			path = ImageUpload;
 			sourceTree = "<group>";
@@ -405,7 +405,7 @@
 				C785CFE818F89F2500F8AC16 /* main.m in Sources */,
 				C785CFF918F9847900F8AC16 /* RPExampleViewController.m in Sources */,
 				C785CFE618F89F2500F8AC16 /* RPAppDelegate.m in Sources */,
-				C785CFF418F9809900F8AC16 /* RPBlurredImageView.m in Sources */,
+				C785CFF418F9809900F8AC16 /* RPImageUploaderView.m in Sources */,
 				C785CFFF18F9971E00F8AC16 /* RPImageUploader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,7 +9,7 @@
 #import "RPExampleViewController.h"
 
 #import "RPImageUploaderViewModel.h"
-#import "RPBlurredImageView.h"
+#import "RPImageUploaderView.h"
 #import "AFURLSessionManager.h"
 
 #import "AFURLRequestSerialization.h"
@@ -43,7 +43,7 @@
     RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
     
     
-    RPBlurredImageView *blurredImageView = [[RPBlurredImageView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) image:image uploaderViewModel:imageUploaderViewModel];
+    RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) image:image uploaderViewModel:imageUploaderViewModel];
     
     [[self view] addSubview:blurredImageView];
     [imageUploaderViewModel start];
