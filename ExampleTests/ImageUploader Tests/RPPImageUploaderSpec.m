@@ -30,12 +30,33 @@ describe(@"Image Uploader", ^{
             RPImageUploader *imageUploader = [[RPImageUploader alloc] initWithRequest:request];
             [[imageUploader should] beNonNil];
         });
-    });
-    
-    context(@"Mock Request", ^{
 
     });
     
+    context(@"State", ^{
+        it(@"should have isFinished and isFailed set to NO", ^{
+            NSURLRequest *request = [[NSURLRequest alloc] init];
+            RPImageUploader *imageUploader = [[RPImageUploader alloc] initWithRequest:request];
+            
+            [[theValue(imageUploader.isFinished) should] equal:@NO];
+            [[theValue(imageUploader.isFailed) should] equal:@NO];
+        });
+        
+        it(@"should have uploadProgress set to 0.0f", ^{
+            NSURLRequest *request = [[NSURLRequest alloc] init];
+            RPImageUploader *imageUploader = [[RPImageUploader alloc] initWithRequest:request];
+            
+            [[theValue(imageUploader.uploadProgress.fractionCompleted) should] equal:@0.0f];
+        });
+        
+        it(@"should have isFinished set to YES when canceled", ^{
+            NSURLRequest *request = [[NSURLRequest alloc] init];
+            RPImageUploader *imageUploader = [[RPImageUploader alloc] initWithRequest:request];
+            [imageUploader cancel];
+            
+            [[theValue(imageUploader.isFinished) should] equal:@YES];
+        });
+    });
 });
 
 SPEC_END

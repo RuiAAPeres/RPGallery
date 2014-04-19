@@ -1,0 +1,5 @@
+#include "Pods-ExampleTests-Nocilla.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/Nocilla" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/Archimedes" "${PODS_ROOT}/Headers/FXBlurView" "${PODS_ROOT}/Headers/Kiwi" "${PODS_ROOT}/Headers/Nocilla" "${PODS_ROOT}/Headers/OHHTTPStubs" "${PODS_ROOT}/Headers/ReactiveCocoa" "${PODS_ROOT}/Headers/ReactiveCocoa/ReactiveCocoa" "${PODS_ROOT}/Headers/ReactiveCocoaLayout"
+OTHER_LDFLAGS = -ObjC ${PODS_EXAMPLETESTS_NOCILLA_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}

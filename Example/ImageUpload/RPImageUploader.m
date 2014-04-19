@@ -56,8 +56,8 @@
 
 - (void)setDefaultKVOValues
 {
-    _isFailed = NO;
-    _isFinished = NO;
+    self.isFailed = NO;
+    self.isFinished = NO;
 }
 
 #pragma mark - NSURLSession
@@ -85,17 +85,13 @@
 
 - (void)resume
 {
-    [_uploadTask resume];
-}
-
-- (void)suspend
-{
-    [_uploadTask suspend];
+    [self.uploadTask resume];
 }
 
 - (void)cancel
 {
-    [_uploadTask cancel];
+    self.isFinished = YES;
+    [self.uploadTask cancel];
 }
 
 @end

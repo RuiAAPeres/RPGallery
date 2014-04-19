@@ -18,7 +18,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = [[RPExampleViewController alloc] init];
+    //self.window.rootViewController = [[RPExampleViewController alloc] init];
     
     return YES;
 }

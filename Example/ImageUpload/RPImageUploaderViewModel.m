@@ -34,11 +34,11 @@ static NSString *const RPIsFailed = @"isFailed";
 
 - (instancetype)initWithRequest:(NSURLRequest *)request
 {
-    NSAssert(request, @"Request should be not nil");
-
+    if (!request) return nil;
+    
     if (self = [super init])
     {
-        _imageUploader = [[RPImageUploader alloc] initWithRequest:request];
+        self.imageUploader = [[RPImageUploader alloc] initWithRequest:request];
         [self setupSignals];
     }
     
@@ -50,10 +50,6 @@ static NSString *const RPIsFailed = @"isFailed";
 - (void)setupSignals
 {
     RAC(self,uploadProgress) = RACObserve(self.imageUploader,uploadProgress);
-    
-    [RACObserve(self, uploadProgress.fractionCompleted) subscribeNext:^(id x) {
-        NSLog(@"%@",x);
-    }];
     
     [RACObserve(self.imageUploader, isFailed) subscribeNext:^(id x) {
         //TODO: Notify it has failed
@@ -68,7 +64,7 @@ static NSString *const RPIsFailed = @"isFailed";
 
 - (void)start
 {
-    [_imageUploader resume];
+    [self.imageUploader resume];
 }
 
 @end

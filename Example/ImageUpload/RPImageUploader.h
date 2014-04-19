@@ -24,6 +24,5 @@
 /// Manual Operations
 - (void)cancel;
 - (void)resume;
-- (void)suspend;
 
 @end
