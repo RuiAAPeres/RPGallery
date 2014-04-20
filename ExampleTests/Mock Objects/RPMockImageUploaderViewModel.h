@@ -10,4 +10,6 @@
 
 @interface RPMockImageUploaderViewModel : NSObject <RPImageUploaderViewModel>
 
+@property(nonatomic,strong)NSProgress *uploadProgress;
+
 @end

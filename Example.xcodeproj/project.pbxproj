@@ -25,6 +25,8 @@
 		C78E33871901F4BF00C88F11 /* RPImageUploaderViewModelSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C78E33861901F4BF00C88F11 /* RPImageUploaderViewModelSpec.m */; };
 		C78E33881901F51A00C88F11 /* RPImageUploaderViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFF018F97DA400F8AC16 /* RPImageUploaderViewModel.m */; };
 		C78E33891901F51D00C88F11 /* RPImageUploader.m in Sources */ = {isa = PBXBuildFile; fileRef = C785CFFE18F9971E00F8AC16 /* RPImageUploader.m */; };
+		C78E338B19032D8F00C88F11 /* RPImageUploaderViewSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = C78E338A19032D8F00C88F11 /* RPImageUploaderViewSpec.m */; };
+		C78E338F1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.m in Sources */ = {isa = PBXBuildFile; fileRef = C78E338E1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.m */; };
 		C7D239C41901B3C40079ACEA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFC918F89EFF00F8AC16 /* XCTest.framework */; };
 		C7D239C51901B3C40079ACEA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB018F89EFE00F8AC16 /* Foundation.framework */; };
 		C7D239C61901B3C40079ACEA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C785CFB418F89EFE00F8AC16 /* UIKit.framework */; };
@@ -68,6 +70,9 @@
 		C78E33811901B75200C88F11 /* RPPImageUploaderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPPImageUploaderSpec.m; sourceTree = "<group>"; };
 		C78E33831901B96400C88F11 /* RPMockImageUploaderViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPMockImageUploaderViewModel.m; sourceTree = "<group>"; };
 		C78E33861901F4BF00C88F11 /* RPImageUploaderViewModelSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploaderViewModelSpec.m; sourceTree = "<group>"; };
+		C78E338A19032D8F00C88F11 /* RPImageUploaderViewSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPImageUploaderViewSpec.m; sourceTree = "<group>"; };
+		C78E338D1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RPImageUploaderView+PrivatePropertiesExposure.h"; sourceTree = "<group>"; };
+		C78E338E1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RPImageUploaderView+PrivatePropertiesExposure.m"; sourceTree = "<group>"; };
 		C7D239C31901B3C40079ACEA /* ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB232E86C22D4EB28DABDA52 /* Pods-ExampleTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ExampleTests.xcconfig"; path = "Pods/Pods-ExampleTests.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,14 +215,25 @@
 			children = (
 				C78E33811901B75200C88F11 /* RPPImageUploaderSpec.m */,
 				C78E33861901F4BF00C88F11 /* RPImageUploaderViewModelSpec.m */,
+				C78E338A19032D8F00C88F11 /* RPImageUploaderViewSpec.m */,
 			);
 			path = "ImageUploader Tests";
+			sourceTree = "<group>";
+		};
+		C78E338C1903353F00C88F11 /* Util Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C78E338D1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.h */,
+				C78E338E1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.m */,
+			);
+			path = "Util Categories";
 			sourceTree = "<group>";
 		};
 		C7D239C71901B3C40079ACEA /* ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
 				C78E33801901B74700C88F11 /* ImageUploader Tests */,
+				C78E338C1903353F00C88F11 /* Util Categories */,
 				C78E33791901B6EE00C88F11 /* Mock Objects */,
 				C78E337C1901B6EE00C88F11 /* Supporting Files */,
 			);
@@ -417,6 +433,8 @@
 				C78E33841901B96400C88F11 /* RPMockImageUploaderViewModel.m in Sources */,
 				C78E33821901B75200C88F11 /* RPPImageUploaderSpec.m in Sources */,
 				C78E33881901F51A00C88F11 /* RPImageUploaderViewModel.m in Sources */,
+				C78E338B19032D8F00C88F11 /* RPImageUploaderViewSpec.m in Sources */,
+				C78E338F1903358A00C88F11 /* RPImageUploaderView+PrivatePropertiesExposure.m in Sources */,
 				C78E33871901F4BF00C88F11 /* RPImageUploaderViewModelSpec.m in Sources */,
 				C78E33891901F51D00C88F11 /* RPImageUploader.m in Sources */,
 			);

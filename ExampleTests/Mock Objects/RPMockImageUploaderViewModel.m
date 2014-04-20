@@ -8,12 +8,6 @@
 
 #import "RPMockImageUploaderViewModel.h"
 
-@interface RPMockImageUploaderViewModel ()
-
-@property(nonatomic)NSProgress *uploadProgress;
-
-@end
-
 @implementation RPMockImageUploaderViewModel
 
 #pragma mark - Initializer
@@ -40,7 +34,7 @@
 
 #pragma mark - Mock Methods
 
--(void)startFakeUploadWithInitialPercentage:(NSProgress *)initialPercentage;
+-(void)startFakeUploadWithInitialPercentage:(NSProgress *)initialPercentage
 {
     if (initialPercentage.fractionCompleted == 1.f)
     {
@@ -50,7 +44,7 @@
     self.uploadProgress = initialPercentage;
     NSNumber *newPercentage = @([initialPercentage fractionCompleted]+.1f);
     
-    [self performSelector:@selector(startFakeUploadWithInitialPercentage:) withObject:newPercentage afterDelay:1.3f];
+    [self performSelector:@selector(startFakeUploadWithInitialPercentage:) withObject:newPercentage afterDelay:0.1f];
 }
 
 @end

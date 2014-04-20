@@ -44,31 +44,56 @@ static NSString *const RPPercentage = @"uploadPercentage";
 
 - (instancetype)initWithFrame:(CGRect)frame image:(UIImage *)image uploaderViewModel:(id<RPImageUploaderViewModel>)imageUploaderViewModel
 {
+    if (!image) return nil;
+    if (!imageUploaderViewModel) return nil;
+    
     if (self = [super initWithFrame:frame])
     {
         self.imageUploaderViewModel = imageUploaderViewModel;
         self.image = image;
-        
         self.signal = [RACSignal empty];
         
-        [self setupBlurredImageView];
+
         [self setupBlurredView];
         [self setupRACObserve];
+        [self setupImageUploaderView];
+        
+        // The ModelView might have already started, so we can't
+        // assume the progress is zero
+        [self updateBlurredViewFrameWithProgress:imageUploaderViewModel.uploadProgress.fractionCompleted];
     }
     
     return self;
 }
 
+#pragma mark - Frame Calculation
+
+- (CGRect)frameFromUploadProgress:(NSNumber *)uploadProgress
+{
+    int newX = (int)ceil(uploadProgress.doubleValue * self.frame.size.width);
+    int newWidth = (int)self.frame.size.width - newX;
+    
+    CGRect newFrame = CGRectMake(newX, CGRectGetMinY(self.blurredView.frame), newWidth, CGRectGetHeight(self.blurredView.frame));
+    
+    return newFrame;
+}
+
 #pragma mark - Setup
+
+- (void)updateBlurredViewFrameWithProgress:(double)progress
+{
+    CGRect updatedBlurredFrame = [self frameFromUploadProgress:@(progress)];
+    self.blurredView.frame = updatedBlurredFrame;
+}
 
 - (void)setupBlurredView
 {
-    _blurredView = [self defaultBlurredView];;
+    _blurredView = [self defaultBlurredView];
     [_blurredView setDynamic:NO];
     [self addSubview:_blurredView];
 }
 
-- (void)setupBlurredImageView
+- (void)setupImageUploaderView
 {
     [self setBackgroundColor:[UIColor blackColor]];
     [self setContentMode:UIViewContentModeScaleAspectFit];
@@ -80,10 +105,7 @@ static NSString *const RPPercentage = @"uploadPercentage";
     RACSignal *uploadSignal = [[RACObserve(self.imageUploaderViewModel, uploadProgress.fractionCompleted) map:^id(NSNumber *uploadProgress){
         @strongify(self);
         
-        int newX = (int)ceil(uploadProgress.doubleValue * self.frame.size.width);
-        int newWidth = (int)self.frame.size.width - newX;
-        
-        CGRect newFrame = CGRectMake(newX, CGRectGetMinY(self.blurredView.frame), newWidth, CGRectGetHeight(self.blurredView.frame));
+        CGRect newFrame = [self frameFromUploadProgress:uploadProgress];
         
         return [NSValue valueWithCGRect:newFrame];
     }] deliverOn:RACScheduler.mainThreadScheduler];

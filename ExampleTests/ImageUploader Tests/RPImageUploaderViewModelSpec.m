@@ -27,7 +27,7 @@ describe(@"Image Uploader ViewModel", ^{
             [[imageUploaderViewModel should] beNil];
         });
         
-        it(@"should be non nil for Request", ^{
+        it(@"should be non nil with Request", ^{
             NSURLRequest *request = [[NSURLRequest alloc] init];
             RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
             

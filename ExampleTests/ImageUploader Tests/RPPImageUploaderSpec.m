@@ -25,7 +25,7 @@ describe(@"Image Uploader", ^{
             [[imageUploader should] beNil];
         });
         
-        it(@"should be non nil for Request", ^{
+        it(@"should be non nil with Request", ^{
             NSURLRequest *request = [[NSURLRequest alloc] init];
             RPImageUploader *imageUploader = [[RPImageUploader alloc] initWithRequest:request];
             [[imageUploader should] beNonNil];
