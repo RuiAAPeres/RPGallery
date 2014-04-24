@@ -26,7 +26,7 @@
 
 #pragma mark - 
 
-- (void)start
+- (void)startWithCompletionHandler:(RPImageUploaderHandler)handler
 {
     NSProgress *initialProgress = [NSProgress progressWithTotalUnitCount:0];
     [self startFakeUploadWithInitialPercentage:initialProgress];

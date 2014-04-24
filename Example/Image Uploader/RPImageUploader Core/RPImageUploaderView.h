@@ -14,6 +14,8 @@
  */
 @interface RPImageUploaderView : UIImageView
 
+@property(nonatomic,strong,readonly)id<RPImageUploaderViewModel> imageUploaderViewModel;
+
 /**
  * Designated Initializer.
  */

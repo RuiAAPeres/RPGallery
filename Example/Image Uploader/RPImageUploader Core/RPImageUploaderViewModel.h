@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Rui Peres. All rights reserved.
 //
 
+// If there is no error, it means the upload has succeed
+typedef void(^RPImageUploaderHandler)(NSError *error);
+
 /**
  The logic for this protocol, it's to enable
  the use of mock objects to act as a ViewModel. The
@@ -25,9 +28,11 @@
 - (instancetype)initWithRequest:(NSURLRequest *)request;
 
 /**
- *  Used to start the upload from the Model part
+ * Used to start the upload. It will receive a handler that will
+ * be executed once the upload has finished, or it has errored.
+ *
  */
-- (void)start;
+- (void)startWithCompletionHandler:(RPImageUploaderHandler)handler;
 
 @end
 

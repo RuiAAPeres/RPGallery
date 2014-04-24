@@ -13,7 +13,7 @@
 
 /// Properties used for KVO (isFinish, hasFailed)
 @property(nonatomic,readonly)BOOL isFinished;
-@property(nonatomic,readonly)BOOL isFailed;
+@property(nonatomic,readonly)NSError *uploadError;
 @property(nonatomic,strong,readonly)NSProgress *uploadProgress;
 
 /**

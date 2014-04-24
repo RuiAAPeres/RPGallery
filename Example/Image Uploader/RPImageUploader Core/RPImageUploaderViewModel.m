@@ -20,6 +20,7 @@ static NSString *const RPIsFailed = @"isFailed";
 
 @property(nonatomic,strong)NSProgress *uploadProgress;
 @property(nonatomic,strong)RPImageUploader *imageUploader;
+@property(nonatomic,copy)RPImageUploaderHandler imageUploaderHandler;
 
 @end
 
@@ -51,19 +52,22 @@ static NSString *const RPIsFailed = @"isFailed";
 {
     RAC(self,uploadProgress) = RACObserve(self.imageUploader,uploadProgress);
     
-    [RACObserve(self.imageUploader, isFailed) subscribeNext:^(id x) {
-        //TODO: Notify it has failed
+    [[RACObserve(self.imageUploader, uploadError) deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(NSError *error) {
+        if (self.imageUploaderHandler) self.imageUploaderHandler(error);
     }];
     
-    [RACObserve(self.imageUploader, isFinished) subscribeNext:^(id x) {
-        //TODO: Notify it has finished
+    [[RACObserve(self.imageUploader, isFinished) deliverOn:RACScheduler.mainThreadScheduler] subscribeNext:^(NSNumber *sisFinished) {
+        if (self.imageUploaderHandler) self.imageUploaderHandler(nil);
     }];
 }
 
 #pragma mark - Model Ignition
 
-- (void)start
+- (void)startWithCompletionHandler:(RPImageUploaderHandler)handler
 {
+    NSAssert(handler, @"It should be non nil");
+    
+    self.imageUploaderHandler = [handler copy];
     [self.imageUploader resume];
 }
 

@@ -15,7 +15,7 @@
 @property(nonatomic,strong)NSURLSessionDataTask *uploadTask;
 
 @property(nonatomic)BOOL isFinished;
-@property(nonatomic)BOOL isFailed;
+@property(nonatomic,strong)NSError *uploadError;
 @property(nonatomic,strong)NSProgress *uploadProgress;
 
 @end
@@ -56,7 +56,7 @@
 
 - (void)setDefaultKVOValues
 {
-    self.isFailed = NO;
+    self.uploadError = nil;
     self.isFinished = NO;
 }
 
@@ -71,7 +71,7 @@
     NSURLSessionUploadTask *uploadTask = [manager uploadTaskWithStreamedRequest:request progress:progress completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
         if (error)
         {
-            weakSelf.isFailed = YES;
+            weakSelf.uploadError = error;
         } else
         {
             weakSelf.isFinished = YES;

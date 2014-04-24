@@ -22,8 +22,8 @@ static NSString *const RPPercentage = @"uploadPercentage";
 @interface RPImageUploaderView ()
 
 @property(nonatomic,strong)id<RPImageUploaderViewModel> imageUploaderViewModel;
-@property(nonatomic,weak)FXBlurView *blurredView;
 
+@property(nonatomic,weak)FXBlurView *blurredView;
 @property(nonatomic,strong)RACSignal *signal;
 
 @end
@@ -57,10 +57,6 @@ static NSString *const RPPercentage = @"uploadPercentage";
         [self setupBlurredView];
         [self setupRACObserve];
         [self setupImageUploaderView];
-        
-        // The ModelView might have already started, so we can't
-        // assume the progress is zero
-        [self updateBlurredViewFrameWithProgress:imageUploaderViewModel.uploadProgress.fractionCompleted];
     }
     
     return self;
@@ -90,7 +86,21 @@ static NSString *const RPPercentage = @"uploadPercentage";
 {
     _blurredView = [self defaultBlurredView];
     [_blurredView setDynamic:NO];
-    [self addSubview:_blurredView];
+    
+    // The upload progress might have already started, so we can't
+    // assume the progress will be zero when this View is created
+    [self updateBlurredViewFrameWithProgress:self.imageUploaderViewModel.uploadProgress.fractionCompleted];
+    
+    // If it's zero, there is no point in adding it
+    if (self.blurredView.frame.size.width != 0)
+    {
+        [self addSubview:_blurredView];
+    }
+    else
+    {
+        // Nil it out immediatly
+        _blurredView = nil;
+    }
 }
 
 - (void)setupImageUploaderView

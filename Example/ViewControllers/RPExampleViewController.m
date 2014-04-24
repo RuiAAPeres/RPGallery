@@ -46,7 +46,9 @@
     RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) image:image uploaderViewModel:imageUploaderViewModel];
     
     [[self view] addSubview:blurredImageView];
-    [imageUploaderViewModel start];
+    [imageUploaderViewModel startWithCompletionHandler:^(NSError *error) {
+        
+    }];
 }
 
 @end

@@ -39,7 +39,7 @@ describe(@"Image Uploader", ^{
             RPImageUploader *imageUploader = [[RPImageUploader alloc] initWithRequest:request];
             
             [[theValue(imageUploader.isFinished) should] equal:@NO];
-            [[theValue(imageUploader.isFailed) should] equal:@NO];
+            [[imageUploader.uploadError should] beNil];
         });
         
         it(@"should have uploadProgress set to 0.0f", ^{

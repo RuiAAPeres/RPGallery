@@ -10,7 +10,6 @@
 
 @implementation RPImageUploaderView (PrivatePropertiesExposure)
 
-@dynamic imageUploaderViewModel;
 @dynamic blurredView;
 
 @end

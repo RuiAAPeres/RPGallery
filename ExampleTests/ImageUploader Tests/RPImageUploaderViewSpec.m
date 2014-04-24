@@ -104,6 +104,20 @@ describe(@"Image Uploader ViewModel", ^{
             BOOL isWidthZero = (imageUploaderView.blurredView.frame.size.width == 0);
             [[theValue(isWidthZero) should] equal:@YES];
         });
+        
+        it(@"BlurredView should have zero width at 100% upload", ^{
+            
+            RPMockImageUploaderViewModel *mockImageUploaderViewModel = [[RPMockImageUploaderViewModel alloc] initWithRequest:[[NSURLRequest alloc] init]];
+            
+            NSProgress *halfProgress = [NSProgress progressWithTotalUnitCount:10];
+            [halfProgress setCompletedUnitCount:10];
+            [mockImageUploaderViewModel setUploadProgress:halfProgress];
+            
+            RPImageUploaderView *imageUploaderView = [[RPImageUploaderView alloc] initWithFrame:frame image:[[UIImage alloc] init] uploaderViewModel:mockImageUploaderViewModel];
+            
+            [[imageUploaderView.blurredView shouldEventually] beNil];
+            
+        });
     });
 });
 

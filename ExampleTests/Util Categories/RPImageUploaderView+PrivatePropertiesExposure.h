@@ -12,7 +12,6 @@
 
 @interface RPImageUploaderView (PrivatePropertiesExposure)
 
-@property(nonatomic,strong)id<RPImageUploaderViewModel> imageUploaderViewModel;
 @property(nonatomic,weak)FXBlurView *blurredView;
 
 @end
