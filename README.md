@@ -37,3 +37,7 @@ RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFra
 ## TODO
 
 * Finalise the `RPGallery` component
+
+## Behind the scenes
+
+Some reasoning about this library can be found [here](codeplease.io).
