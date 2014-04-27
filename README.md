@@ -17,21 +17,21 @@ These follow an [MVVM](http://en.wikipedia.org/wiki/Model_View_ViewModel) patter
 Even without the `RPGallery` piece, you can still upload images:
 
 ```objc
-    UIImage *image = [UIImage imageNamed:@"example.png"];
-    NSData *imageData = UIImagePNGRepresentation(image);
+UIImage *image = [UIImage imageNamed:@"example.png"];
+NSData *imageData = UIImagePNGRepresentation(image);
     
-    NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST"URLString:@"http://38161330.ngrok.com/upload"parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        [formData appendPartWithFileData:imageData name:@"file" fileName:@"file.png" mimeType:@"image/png"];
-    } error:nil];
+NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST"URLString:@"http://38161330.ngrok.com/upload"parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+	[formData appendPartWithFileData:imageData name:@"file" fileName:@"file.png" mimeType:@"image/png"];
+} error:nil];
     
-    RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
+RPImageUploaderViewModel *imageUploaderViewModel = [[RPImageUploaderViewModel alloc] initWithRequest:request];
     
-    RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) image:image uploaderViewModel:imageUploaderViewModel];
+RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFrame:CGRectMake(10.0f, 50.0f, 300.0f, 200) image:image uploaderViewModel:imageUploaderViewModel];
     
-    [[self view] addSubview:blurredImageView];
-    [imageUploaderViewModel startWithCompletionHandler:^(NSError *error) {
+[[self view] addSubview:blurredImageView];
+[imageUploaderViewModel startWithCompletionHandler:^(NSError *error) {
         
-    }];
+}];
 ```
 
 ## TODO
