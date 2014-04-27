@@ -2,7 +2,7 @@
 
 RPGallery is a UI Control used to display a collection of `UIImageViews`, that will be uploaded sequencially to a server. Initially an `UIImageView` has an `FXBlurView` on top of it and is progressively removed while the image is being uploaded.
 
-## Components
+### Components
 
 Right now only the Core classes have been created:
 
@@ -12,7 +12,7 @@ Right now only the Core classes have been created:
 
 These follow an [MVVM](http://en.wikipedia.org/wiki/Model_View_ViewModel) pattern, with the help of [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) powerful bindings. 
 
-## Usage
+### Usage
 
 Even without the `RPGallery` piece, you can still upload images:
 
@@ -34,10 +34,10 @@ RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFra
 }];
 ```
 
-## TODO
+### TODO
 
 * Finalise the `RPGallery` component
 
-## Behind the scenes
+### Behind the scenes
 
 Some reasoning about this library can be found [here](codeplease.io).
