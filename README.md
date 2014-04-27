@@ -20,7 +20,7 @@ Even without the `RPGallery` piece, you can still upload images:
 UIImage *image = [UIImage imageNamed:@"example.png"];
 NSData *imageData = UIImagePNGRepresentation(image);
     
-NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST"URLString:@"http://38161330.ngrok.com/upload"parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer]multipartFormRequestWithMethod:@"POST"URLString:@"<your server url>"parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 	[formData appendPartWithFileData:imageData name:@"file" fileName:@"file.png" mimeType:@"image/png"];
 } error:nil];
     
