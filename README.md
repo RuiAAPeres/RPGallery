@@ -37,6 +37,8 @@ RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFra
 ### TODO
 
 * Finalise the `RPGallery` component
+* Add the component to Cocoapods
+* Add an animated Gif
 
 ### Behind the scenes
 
