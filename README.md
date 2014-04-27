@@ -42,4 +42,4 @@ RPImageUploaderView *blurredImageView = [[RPImageUploaderView alloc] initWithFra
 
 ### Behind the scenes
 
-Some reasoning about this library can be found [here](codeplease.io).
+Some reasoning about this library can be found [here](http://codeplease.io).
